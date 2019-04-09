@@ -1,37 +1,46 @@
 package rocks.zipcode.io.quiz4.generics;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author leon on 18/12/2018.
  */
-public class Group<_> {
+public class Group<T> {
+    List<T> group = new ArrayList<>();
+    
     public Group() {
-        throw new UnsupportedOperationException("Method not yet implemented");
     }
-
+    
     public Integer count() {
-        return null;
+        return group.size();
     }
-
-    public void insert(_ value) {
+    
+    public void insert(T value) {
+        group.add(value);
     }
-
-    public Boolean has(_ value) {
-        return null;
+    
+    public Boolean has(T value) {
+        return group.contains(value);
     }
-
-    public _ fetch(int indexOfValue) {
-        return null;
+    
+    public T fetch(int indexOfValue) {
+        return group.get(indexOfValue);
     }
-
-    public void delete(_ value) {
+    
+    public void delete(T value) {
+        group.remove(value);
     }
-
+    
     public void clear() {
+        group.clear();
     }
-
-    public Iterator<_> iterator() {
-        return null;
+    
+    public Iterator<? extends T> iterator() {
+        return group.iterator();
     }
 }
